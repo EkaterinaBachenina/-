@@ -1,0 +1,10 @@
+SELECT * FROM Students;
+SELECT course_name, credits FROM Courses;
+SELECT * FROM Students WHERE start_year = 2021;
+SELECT * FROM Courses where credits > 4;
+SELECT * from Students where email = 'elena.kuznetsova@newmail.com';
+SELECT * from Students where full_name LIKE 'Дмитрий%';
+SELECT * FROM Enrollments where grade is NULL;
+SELECT * FROM Courses ORDER BY course_name ASC;
+SELECT * FROM Students ORDER BY start_year ASC, full_name ASC;
+SELECT * FROM Students ORDER BY start_year DESC LIMIT 2;
