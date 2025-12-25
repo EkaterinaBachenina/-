@@ -163,3 +163,27 @@ INSERT INTO PlaylistsTracks (playlistid, trackid) VALUES
 (1, 2),    
 (2, 3),             
 (3, 4);           
+
+SELECT 
+    a.Name as author_name,
+    JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'title', t.title,
+            'duration', t.duration,
+            'releasedate', t.releasedate
+        )
+    ) as tracks
+FROM Authors a
+LEFT JOIN AuthorsTracks at ON a.id = at.autorid
+LEFT JOIN Tracks t ON at.trackid = t.id
+WHERE a.id = 1
+GROUP BY a.id, a.Name;
+
+SELECT Name, birthdate, Email
+FROM Users
+WHERE EXTRACT( MONTH FROM birthdate) = '12';
+
+SELECT u.Name as user_name, u.birthdate as user_birthdate,
+a.Name as author_name, a.birthdate as author_birthdate
+FROM Users u
+JOIN authors a ON u.birthdate = a.birthdate;
