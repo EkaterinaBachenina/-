@@ -30,7 +30,7 @@ CREATE TABLE RaceResults (
 
 CREATE TABLE RoomBookings (
     booking_time DATETIME,
-    room_name VARCHAR(100),
+    room_name int,
     event_name VARCHAR(255),
     event_type VARCHAR(50),
     PRIMARY KEY (booking_time, room_name),
@@ -41,4 +41,5 @@ CREATE TABLE EventTypes (
     event_type VARCHAR(50) PRIMARY KEY,
     room_name VARCHAR(100)
 );
+
 
