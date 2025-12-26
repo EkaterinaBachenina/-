@@ -44,8 +44,8 @@ VALUES (2, -100, 'Попытка продажи 100 смартфонов');
 
 COMMIT; 
 
-SELECT * FROM products WHERE name = 'Смартфон'; -- quantity = 50 (не изменилось)
-SELECT * FROM order_history WHERE product_id = 2 ORDER BY created_at DESC LIMIT 1; -- Нет новой записи
+SELECT * FROM products WHERE name = 'Смартфон'; 
+SELECT * FROM order_history WHERE product_id = 2 ORDER BY created_at DESC LIMIT 1; 
 
 BEGIN;
 
@@ -68,3 +68,4 @@ COMMIT;
 
 
 SELECT * FROM products WHERE product_id = 2; 
+
