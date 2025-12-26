@@ -37,12 +37,12 @@ UPDATE products
 SET quantity = quantity - 100 
 WHERE name = 'Смартфон';
 
--- До этой строки не дойдет из-за ошибки!
+
 
 INSERT INTO order_history (product_id, quantity_changed, notes) 
 VALUES (2, -100, 'Попытка продажи 100 смартфонов');
 
-COMMIT; -- Не выполнится
+COMMIT; 
 
 SELECT * FROM products WHERE name = 'Смартфон'; -- quantity = 50 (не изменилось)
 SELECT * FROM order_history WHERE product_id = 2 ORDER BY created_at DESC LIMIT 1; -- Нет новой записи
@@ -53,7 +53,7 @@ UPDATE products
 SET quantity = quantity - 2 
 WHERE name = 'Ноутбук';
 
--- Проверка платежа не прошла!
+
 ROLLBACK;
 
 -- Проверка
@@ -65,5 +65,6 @@ UPDATE products SET quantity = quantity - 10 WHERE product_id = 2;
 SELECT * FROM products WHERE product_id = 2; 
 
 COMMIT;
+
 
 SELECT * FROM products WHERE product_id = 2; 
